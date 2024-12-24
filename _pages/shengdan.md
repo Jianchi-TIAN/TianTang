@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "圣诞纪念篇💏"
+title: "圣诞纪念篇🎄"
 permalink: /shengdan/
 author_profile: true
 redirect_from:
@@ -12,6 +12,5 @@ redirect_from:
 ======
 <img src="../images/20241218.jpg" width = 300 height = "auto">
 2024年12月18日给🥣宝宝做圣诞树
-<img src="../images/20241224.jpg" width = 300 height = "auto"><img src="../images/20241224-1.jpg" width = 300 height = "auto">
-<img src="../images/20241224-2.jpg" width = 300 height = "auto"><img src="../images/20241224-3.jpg" width = 300 height = "auto">
+<img src="../images/20241224.jpg" width = 300 height = "auto"><img src="../images/20241224-1.jpg" width = 300 height = "auto"><img src="../images/20241224-2.jpg" width = 300 height = "auto"><img src="../images/20241224-3.jpg" width = 300 height = "auto">
 2024年12月24日🥣宝宝买的圣诞礼物
