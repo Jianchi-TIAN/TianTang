@@ -8,9 +8,9 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "甜汤的小家 🍬🥣の🏰"
+title                    : "TianTang"
 title_separator          : "-"
-name                     : &name "甜汤的小家 🍬🥣の🏰"
+name                     : &name "TianTang"
 description              : &description "personal description"
 url                      : https://jianchi-tian.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
