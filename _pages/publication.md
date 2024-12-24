@@ -1,11 +1,11 @@
 ---
 layout: archive
 title: "人物纪念篇💏"
-permalink: /人物纪念篇/
+permalink: /publication/
 author_profile: true
 redirect_from:
-  - /人物纪念篇/
-  - /人物纪念篇.html
+  - /publication/
+  - /publication.html
 ---
 
 <span style="font-size: 0.8em;">重要的纪念日子</span>
