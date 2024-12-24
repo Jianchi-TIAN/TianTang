@@ -8,36 +8,36 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Jianchi Tian"
+title                    : "甜汤的小家 🍬🥣の🏰"
 title_separator          : "-"
-name                     : &name "Jianchi Tian"
+name                     : &name "甜汤的小家 🍬🥣の🏰"
 description              : &description "personal description"
 url                      : https://jianchi-tian.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "Jianchi-TIAN/jianchi-tian.github.io"
+repository               : "Jianchi-TIAN/jianchi-tian.github.io/TianTang"
 
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
-  name             : "田健池 Jianchi Tian 🍬🥣"
+  avatar           : "20240622-2.jpg"
+  name             : "甜汤的小家 🍬🥣の🏰"
   pronouns         : # example: "she/her"  
-  bio              : "PhD candidate"
-  location         : "Beijing, China"
-  employer         : "Insitute of Psychology, CAS" 
+  bio              : #"PhD candidate"
+  location         : #"Beijing, China"
+  employer         : #"Insitute of Psychology, CAS" 
   uri              : # URL
-  email            : "tjc0327@163.com" 
+  email            : #"tjc0327@163.com" 
 
   # Academic websites
   arxiv            : # URL - Update with the correct link to your profile
-  googlescholar    : "https://scholar.google.com/citations?user=jxEIkp8AAAAJ&hl"
+  googlescholar    : #"https://scholar.google.com/citations?user=jxEIkp8AAAAJ&hl"
   impactstory      : # URL
-  orcid            : "http://orcid.org/my-orcid?orcid=0000-0003-0928-9288"
+  orcid            : #"http://orcid.org/my-orcid?orcid=0000-0003-0928-9288"
   semantic         : # URL
   pubmed           : # "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-  researchgate     : "https://www.researchgate.net/profile/Jianchi-Tian"
+  researchgate     : #"https://www.researchgate.net/profile/Jianchi-Tian"
 
   # Repositories and software development
   bitbucket        : # Username - Update with your username on the site
