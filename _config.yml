@@ -12,7 +12,7 @@ title                    : "TianTang"
 title_separator          : "-"
 name                     : &name "TianTang"
 description              : &description "personal description"
-url                      : https://jianchi-tian.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : https://jianchi-tian.github.io/TianTang # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "Jianchi-TIAN/jianchi-tian.github.io/TianTang"
 
