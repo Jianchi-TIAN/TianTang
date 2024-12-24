@@ -10,7 +10,7 @@ redirect_from:
 
 <span style="font-size: 0.8em;">重要的纪念日子</span>
 ======
-2024年4月27日第一次一起过生日<img src=".\images\20240427.jpg" width = 300 height = 200><img src=".\images\20240427-1.jpg" width = 300 height = 200>
+2024年4月27日第一次一起过生日"20240427.jpg""20240427-1.jpg"
 2024年5月15日接🥣宝宝回来<img src=".\images\20240515.jpg" width = 300 height = 200>
 2024年5月15日给🥣宝宝买花🌹<img src=".\images\20240515-1.jpg" width = 300 height = 200>
 2024年5月16日吃完饭后第一次亲亲😙<img src=".\images\20240516.jpg" width = 300 height = 200>
