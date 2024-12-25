@@ -336,27 +336,33 @@ author_profile: true
   </div>
   
   <script>
-    // JavaScript部分：实现图片的自动切换
+    // JavaScript部分：实现翻页效果
     const images = document.querySelectorAll('.image-slider-item');
+    const sliderContainer = document.querySelector('.image-slider-container');
     let currentIndex = 0;
     const totalImages = images.length;
 
-    // 初始化显示第一张图片
-    images[currentIndex].style.opacity = 1;
-
     function changeImage() {
-      // 当前图片淡出
-      images[currentIndex].style.opacity = 0;
+      // 动画过渡效果：将当前图片滑动到左侧
+      sliderContainer.style.transform = `translateX(-${(currentIndex + 1) * 100}%)`;
 
       // 更新索引，循环回到第一张
       currentIndex = (currentIndex + 1) % totalImages;
 
-      // 下一张图片淡入
-      images[currentIndex].style.opacity = 1;
+      // 小延迟后重新将容器回到原点，以便下一次过渡
+      setTimeout(() => {
+        sliderContainer.style.transition = 'none'; // 关闭过渡效果
+        sliderContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+        // 重新启用过渡效果
+        setTimeout(() => {
+          sliderContainer.style.transition = 'transform 1s ease-in-out';
+        }, 50);
+      }, 1000); // 等待 1 秒后恢复
     }
 
     // 每3秒切换一张图片
-    setInterval(changeImage, 3000); // 每3秒切换一次图片
+    setInterval(changeImage, 3000); 
   </script>
   
   <div class="heart-container">
