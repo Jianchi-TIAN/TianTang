@@ -10,93 +10,132 @@ author_profile: true
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>动态心形排列的图片和文字</title>
+  <title>心形排列的图片和文字</title>
   <style>
     /* 页面基本样式 */
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Georgia', serif;
       text-align: center;
+      background: linear-gradient(135deg, rgba(255, 182, 193, 0.8), rgba(255, 240, 245, 0.8));
       margin: 0;
       padding: 0;
-      background-color: #f8f8f8;
+      color: #333;
     }
 
     h1 {
-      margin-top: 20px;
+      font-size: 36px;
+      color: #d25a9d;
+      margin-top: 40px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
     }
 
     /* 容器样式，用于排列成大爱心 */
     .heart-container {
       position: relative;
-      width: 1500px;  /* 扩大容器的宽度 */
-      height: 1500px; /* 扩大容器的高度 */
       margin: 50px auto;
+      width: 90%;
+      height: auto;
+      max-width: 1200px;
     }
 
     /* 每个图片和文字的样式 */
     .heart-item {
       position: absolute;
       text-align: center;
-      width: 100px;   /* 设置图片宽度为100px */
-      height: 100px;  /* 设置图片高度为100px */
-      opacity: 0;     /* 初始时图片透明度为0，隐藏 */
-      transform: scale(0);  /* 初始时缩放为0，即图片不可见 */
-      animation: showItem 1s forwards; /* 动画效果 */
+      width: 120px;
+      height: 120px;
+      opacity: 0;
+      transform: scale(0);
+      animation: showItem 1s ease-out forwards;
     }
 
-    /* 图片和文字的显示动画 */
     @keyframes showItem {
       0% {
         opacity: 0;
         transform: scale(0);
       }
       50% {
-        opacity: 0.5;
-        transform: scale(1.1); /* 图片略微放大 */
+        opacity: 0.7;
+        transform: scale(1.1);
       }
       100% {
         opacity: 1;
-        transform: scale(1);   /* 图片恢复到原始大小 */
+        transform: scale(1);
       }
     }
 
     /* 每个图片和文字的位置，根据心形路径调整 */
-    .heart-item-30 { top: 90%; left: 50%; transform: translateX(-50%); animation-delay: 0.6s; }
-    .heart-item-29 { top: 85%; left: 60%; transform: translateX(-50%); animation-delay: 0.55s; }
-    .heart-item-28 { top: 85%; left: 40%; transform: translateX(-50%); animation-delay: 0.5s; }
-    .heart-item-27 { top: 77%; left: 70%; transform: translateX(-50%); animation-delay: 0.45s; }
-    .heart-item-26 { top: 77%; left: 30%; transform: translateX(-50%); animation-delay: 0.4s; }
-    .heart-item-25 { top: 73%; left: 55%; transform: translateX(-50%); animation-delay: 0.35s; }
-    .heart-item-24 { top: 73%; left: 45%; transform: translateX(-50%); animation-delay: 0.3s; }
-    .heart-item-23 { top: 66%; left: 75%; transform: translateX(-50%); animation-delay: 0.25s; }
-    .heart-item-22 { top: 66%; left: 25%; transform: translateX(-50%); animation-delay: 0.2s; }
-    .heart-item-21 { top: 60%; left: 50%; transform: translateX(-50%); animation-delay: 0.15s; }
-    .heart-item-20 { top: 55%; left: 80%; transform: translateX(-50%); animation-delay: 0.1s; }
-    .heart-item-19 { top: 55%; left: 63%; transform: translateX(-50%); animation-delay: 0.05s; }
-    .heart-item-18 { top: 55%; left: 37%; transform: translateX(-50%); animation-delay: 0.0s; }
-    .heart-item-17 { top: 55%; left: 20%; transform: translateX(-50%); animation-delay: 0.1s; }
-    .heart-item-16 { top: 45%; left: 85%; transform: translateX(-50%); animation-delay: 0.15s; }
-    .heart-item-15 { top: 45%; left: 50%; transform: translateX(-50%); animation-delay: 0.2s; }
-    .heart-item-14 { top: 45%; left: 15%; transform: translateX(-50%); animation-delay: 0.25s; }
-    .heart-item-13 { top: 40%; left: 70%; transform: translateX(-50%); animation-delay: 0.3s; }
-    .heart-item-12 { top: 40%; left: 30%; transform: translateX(-50%); animation-delay: 0.35s; }
-    .heart-item-11 { top: 33%; left: 90%; transform: translateX(-50%); animation-delay: 0.4s; }
-    .heart-item-10 { top: 33%; left: 10%; transform: translateX(-50%); animation-delay: 0.45s; }
-    .heart-item-9 { top: 30%; left: 50%; transform: translateX(-50%); animation-delay: 0.5s; }
-    .heart-item-8 { top: 25%; left: 65%; transform: translateX(-50%); animation-delay: 0.55s; }
-    .heart-item-7 { top: 25%; left: 35%; transform: translateX(-50%); animation-delay: 0.6s; }
-    .heart-item-6 { top: 20%; left: 85%; transform: translateX(-50%); animation-delay: 0.65s; }
-    .heart-item-5 { top: 20%; left: 15%; transform: translateX(-50%); animation-delay: 0.7s; }
-    .heart-item-4 { top: 15%; left: 75%; transform: translateX(-50%); animation-delay: 0.75s; }
-    .heart-item-3 { top: 15%; left: 25%; transform: translateX(-50%); animation-delay: 0.8s; }
-    .heart-item-2 { top: 10%; left: 60%; transform: translateX(-50%); animation-delay: 0.85s; }
-    .heart-item-1 { top: 10%; left: 40%; transform: translateX(-50%); animation-delay: 0.9s; }
+    .heart-item-30 { top: 90%; left: 50%; transform: translateX(-50%); }
+    .heart-item-29 { top: 85%; left: 60%; transform: translateX(-50%); }
+    .heart-item-28 { top: 85%; left: 40%; transform: translateX(-50%); }
+    .heart-item-27 { top: 77%; left: 70%; transform: translateX(-50%); }
+    .heart-item-26 { top: 77%; left: 30%; transform: translateX(-50%); }
+    .heart-item-25 { top: 73%; left: 55%; transform: translateX(-50%); }
+    .heart-item-24 { top: 73%; left: 45%; transform: translateX(-50%); }
+    .heart-item-23 { top: 66%; left: 75%; transform: translateX(-50%); }
+    .heart-item-22 { top: 66%; left: 25%; transform: translateX(-50%); }
+    .heart-item-21 { top: 60%; left: 50%; transform: translateX(-50%); }
+    .heart-item-20 { top: 55%; left: 80%; transform: translateX(-50%); }
+    .heart-item-19 { top: 55%; left: 63%; transform: translateX(-50%); }
+    .heart-item-18 { top: 55%; left: 37%; transform: translateX(-50%); }
+    .heart-item-17 { top: 55%; left: 20%; transform: translateX(-50%); }
+    .heart-item-16 { top: 45%; left: 85%; transform: translateX(-50%); }
+    .heart-item-15 { top: 45%; left: 50%; transform: translateX(-50%); }
+    .heart-item-14 { top: 45%; left: 15%; transform: translateX(-50%); }
+    .heart-item-13 { top: 40%; left: 70%; transform: translateX(-50%); }
+    .heart-item-12 { top: 40%; left: 30%; transform: translateX(-50%); }
+    .heart-item-11 { top: 33%; left: 90%; transform: translateX(-50%); }
+    .heart-item-10 { top: 33%; left: 10%; transform: translateX(-50%); }
+    .heart-item-9 { top: 30%; left: 50%; transform: translateX(-50%); }
+    .heart-item-8 { top: 25%; left: 65%; transform: translateX(-50%); }
+    .heart-item-7 { top: 25%; left: 35%; transform: translateX(-50%); }
+    .heart-item-6 { top: 20%; left: 85%; transform: translateX(-50%); }
+    .heart-item-5 { top: 20%; left: 15%; transform: translateX(-50%); }
+    .heart-item-4 { top: 15%; left: 75%; transform: translateX(-50%); }
+    .heart-item-3 { top: 15%; left: 25%; transform: translateX(-50%); }
+    .heart-item-2 { top: 10%; left: 60%; transform: translateX(-50%); }
+    .heart-item-1 { top: 10%; left: 40%; transform: translateX(-50%); }
+
+    .heart-item img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .heart-item img:hover {
+      transform: scale(1.05);
+    }
 
     /* 自定义字体样式 */
     .heart-text {
       font-size: 14px;
-      color: #333;
-      margin-top: 5px;
+      color: #555;
+      padding-top: 10px;
+      font-style: italic;
+    }
+
+    /* 适配小屏设备 */
+    @media screen and (max-width: 768px) {
+      .heart-container {
+        width: 100%;
+        height: 100%;
+      }
+
+      .heart-item {
+        width: 80px;
+        height: 80px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
     }
   </style>
 </head>
