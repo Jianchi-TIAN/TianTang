@@ -42,35 +42,62 @@ author_profile: true
     .image-slider {
       position: fixed;
       left: 10vw;
-      top: 50%;
+      top: 55%;
       transform: translateY(-50%);
-      width: 25vw; /* 屏幕宽度的三分之一 */
-      height: 60vh; /* 高度设定为屏幕的80% */
+      width: 400px; /* 屏幕宽度的三分之一 */
+      height: 600px; /* 高度设定为屏幕的80% */
       overflow: hidden;
       border-radius: 10px;
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
       background: #fff;
     }
 
-    /* 容器内图片样式 */
     .image-slider-container {
       position: relative;
-      width: 100%;
       height: 100%;
+      animation: slideImages 90s infinite linear; /* 90秒让30张图片循环播放 */
     }
 
     .image-slider-item {
-      position: absolute;
       width: 100%;
       height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       opacity: 0;
-      transition: opacity 1s ease-in-out;
+      animation: fadeInOut 30s infinite;
     }
 
     .image-slider-item img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: opacity 1s ease-in-out;
+    }
+
+    /* 图片淡入淡出效果 */
+    @keyframes fadeInOut {
+      0%, 10% {
+        opacity: 1;
+      }
+      15%, 25% {
+        opacity: 0;
+      }
+      30%, 40% {
+        opacity: 1;
+      }
+      45%, 55% {
+        opacity: 0;
+      }
+      60%, 70% {
+        opacity: 1;
+      }
+      75%, 85% {
+        opacity: 0;
+      }
+      90%, 100% {
+        opacity: 1;
+      }
     }
 
 
@@ -232,127 +259,11 @@ author_profile: true
     <div class="image-slider-container">
       <!-- 这里是30张图片的循环播放 -->
       <div class="image-slider-item">
-        <img src="../images/20240427.jpg" alt="2024年4月27日第一次一起过生日">
-      </div>
-      <div class="image-slider-item">
-        <img src="../images/20240427-1.jpg" alt="2024年4月27日第一次一起过生日">
-      </div>
-      <div class="image-slider-item">
-        <img src="../images/20240515.jpg" alt="2024年5月15日接🥣宝宝回来">
-      </div>
-      <div class="image-slider-item">
-        <img src="../images/20240515-1.jpg" alt="2024年5月15日给🥣宝宝买花🌹">
-      </div>
-      <div class="image-slider-item">
-        <img src="../images/20240516.jpg" alt="2024年5月16日吃完饭后第一次亲亲😙">
-      </div>
-      <div class="image-slider-item">
-        <img src="../images/20240519.jpg" alt="2024年5月19日两人在湖边约定“结婚日子”">
-      </div>
-      <div class="image-slider-item">
-        <img src="../images/20240524.jpg" alt="2024年5月24日两人第一次💤">
-      </div>
-      <div class="image-slider-item">
-        <img src="../images/20240526-3.jpg" alt="2024年5月26日在咖啡馆学习">
-      </div>
-      <div class="image-slider-item">
-        <img src="../images/20240526-4.jpg" alt="2024年5月26日在咖啡馆学习">
-      </div>
-      <div class="image-slider-item">
-        <img src="../images/20240613.jpg" alt="2024年6月13日两个人戴上💍">
-      </div>
-      <div class="image-slider-item">
-        <img src="../images/20240613-1.jpg" alt="2024年6月13日两个人戴上💍">
-      </div>
-      <div class="image-slider-item">
-        <img src="../images/20240616.jpg" alt="2024年6月16日第一张自拍合照">
-      </div>
-      <div class="image-slider-item">
-        <img src="../images/20240616-1.jpg" alt="2024年6月16日第一张自拍合照">
-      </div>
-      <div class="image-slider-item">
-        <img src="../images/20240620.jpg" alt="2024年6月20日给🥣宝宝做毕业帽">
-      </div>
-      <div class="image-slider-item">
-        <img src="../images/20240621.jpg" alt="2024年6月21日给🥣宝宝毕业花束">
-      </div>
-      <div class="image-slider-item">
-        <img src="../images/20240621-1.jpg" alt="2024年6月21日🥣宝宝毕业合照">
-      </div>
-      <div class="image-slider-item">
-        <img src="../images/20240622-2.jpg" alt="2024年6月22日海马体拍写真">
-      </div>
-      <div class="image-slider-item">
-        <img src="../images/20240704.jpg" alt="2024年7月4日第一次见🥣爸爸妈妈">
-      </div>
-      <div class="image-slider-item">
-        <img src="../images/20240705-1.jpg" alt="2024年7月5日第一次和🥣爸爸妈妈合照">
-      </div>
-      <div class="image-slider-item">
-        <img src="../images/20240705-2.jpg" alt="2024年7月5日🥣宝宝毕业合照">
-      </div>
-      <div class="image-slider-item">
-        <img src="../images/20240711-1.jpg" alt="2024年7月11日收到🥣宝宝写的信">
-      </div>
-      <div class="image-slider-item">
-        <img src="../images/20240711-2.jpg" alt="2024年7月11日收到🥣宝宝写的信">
-      </div>
-      <div class="image-slider-item">
-        <img src="../images/20240714.jpg" alt="2024年7月14日第一次和🥣爸爸妈妈一起出游">
-      </div>
-      <div class="image-slider-item">
-        <img src="../images/20240726.jpg" alt="2024年7月26日第一次出游">
-      </div>
-      <div class="image-slider-item">
-        <img src="../images/20240803.jpg" alt="2024年8月03日第一次回🍬家的路上">
-      </div>
-      <div class="image-slider-item">
-        <img src="../images/20240810.jpg" alt="2024年8月10日第一次和🍬爸爸妈妈合照">
-      </div>
-      <div class="image-slider-item">
-        <img src="../images/20240811.jpg" alt="2024年8月11日第一次回🥣家">
-      </div>
-      <div class="image-slider-item">
-        <img src="../images/20240812.jpg" alt="2024年8月12日第一次见🥣的亲戚">
-      </div>
-      <div class="image-slider-item">
-        <img src="../images/20240917.jpg" alt="2024年9月17日异国的开始">
-      </div>
-      <div class="image-slider-item">
-        <img src="../images/20240917-1.jpg" alt="2024年9月17日异国的开始">
+        <img src="../images/TT-1.jpg">
       </div>
     </div>
   </div>
-  
-  <script>
-    // JavaScript部分：实现翻页效果
-    const images = document.querySelectorAll('.image-slider-item');
-    const sliderContainer = document.querySelector('.image-slider-container');
-    let currentIndex = 0;
-    const totalImages = images.length;
 
-    function changeImage() {
-      // 动画过渡效果：将当前图片滑动到左侧
-      sliderContainer.style.transform = `translateX(-${(currentIndex + 1) * 100}%)`;
-
-      // 更新索引，循环回到第一张
-      currentIndex = (currentIndex + 1) % totalImages;
-
-      // 小延迟后重新将容器回到原点，以便下一次过渡
-      setTimeout(() => {
-        sliderContainer.style.transition = 'none'; // 关闭过渡效果
-        sliderContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-        // 重新启用过渡效果
-        setTimeout(() => {
-          sliderContainer.style.transition = 'transform 1s ease-in-out';
-        }, 50);
-      }, 1000); // 等待 1 秒后恢复
-    }
-
-    // 每3秒切换一张图片
-    setInterval(changeImage, 3000); 
-  </script>
   
   <div class="heart-container">
     <!-- 每个图片和文字项 -->
