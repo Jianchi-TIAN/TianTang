@@ -111,6 +111,37 @@ author_profile: true
       transform: scale(1.05);
     }
 
+    /* 放大图片弹出层 */
+    .modal {
+      display: none; /* 默认隐藏 */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8); /* 半透明黑色背景 */
+      z-index: 1000; /* 确保在最前面 */
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 80%;
+      margin: auto;
+    }
+
+    /* 关闭按钮样式 */
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 30px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+
     /* 自定义字体样式 */
     .heart-text {
       font-size: 14px;
@@ -249,5 +280,42 @@ author_profile: true
       <div class="heart-text">2024年9月17日异国的开始</div>
     </div>
   </div>
+
+  <!-- 放大查看图片的弹出层 -->
+  <div class="modal" id="modal">
+    <span class="close-btn" id="closeBtn">&times;</span>
+    <img id="modalImg" src="" alt="放大图片" />
+  </div>
+
+  <script>
+    // 获取弹出层和关闭按钮
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modalImg");
+    const closeBtn = document.getElementById("closeBtn");
+
+    // 获取所有图片元素
+    const images = document.querySelectorAll(".heart-item img");
+
+    // 遍历所有图片，添加点击事件
+    images.forEach(img => {
+      img.addEventListener("click", function() {
+        // 获取点击的图片源路径并设置为弹出层中的图片
+        modal.style.display = "flex"; // 显示弹出层
+        modalImg.src = this.src; // 设置放大图的路径
+      });
+    });
+
+    // 关闭弹出层
+    closeBtn.addEventListener("click", function() {
+      modal.style.display = "none"; // 隐藏弹出层
+    });
+
+    // 点击弹出层外的区域也可以关闭弹出层
+    window.addEventListener("click", function(event) {
+      if (event.target === modal) {
+        modal.style.display = "none"; // 隐藏弹出层
+      }
+    });
+  </script>
 </body>
 </html>
