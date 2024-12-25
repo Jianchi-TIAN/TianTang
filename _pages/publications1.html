@@ -11,9 +11,7 @@ author_profile: true
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>心形排列的图片和文字</title>
 
-  <!-- 引入粒子效果 -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-  
+
   <style>
     /* 页面基本样式 */
     body {
@@ -25,15 +23,6 @@ author_profile: true
       color: #333;
     }
 
-    /* 粒子效果 */
-    #particles-js {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-    }
 
     /* 标题样式 */
     h1 {
@@ -181,6 +170,11 @@ author_profile: true
       color: #d25a9d;
     }
 
+    @keyframes fadeInModal {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    
     /* 弹出层样式 */
     .modal {
       display: none;
@@ -195,11 +189,6 @@ author_profile: true
       align-items: center;
       opacity: 0;
       animation: fadeInModal 0.5s forwards;
-    }
-
-    @keyframes fadeInModal {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
     }
 
     .modal img {
@@ -494,7 +483,20 @@ author_profile: true
     <span class="close-btn" id="closeBtn">&times;</span>
     <img id="modalImg" src="" alt="放大图片" />
   </div>
-
+  
+  <!-- 引入粒子效果 -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  
+    /* 粒子效果 */
+    #particles-js {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+  
   <script>
     // 初始化粒子效果
     particlesJS('particles-js', {
