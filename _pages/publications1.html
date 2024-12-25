@@ -10,20 +10,37 @@ author_profile: true
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>心形排列的图片和文字</title>
+
+  <!-- 引入粒子效果 -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  
   <style>
     /* 页面基本样式 */
     body {
       font-family: 'Georgia', serif;
       text-align: center;
-      background: linear-gradient(135deg, rgba(255, 182, 193, 0.8), rgba(255, 240, 245, 0.8));
       margin: 0;
       padding: 0;
-      color: #333;
+      background: linear-gradient(135deg, rgba(255, 182, 193, 0.8), rgba(255, 240, 245, 0.8));
+      overflow: hidden;
     }
 
+    /* 粒子效果 */
+    #particles-js {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    /* 标题样式 */
     h1 {
-      font-size: 36px;
-      color: #d25a9d;
+      font-family: 'Great Vibes', cursive;
+      font-size: 48px;
+      color: #f7a8b8;
+      text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.6);
       margin-top: 40px;
       animation: fadeIn 1.5s ease-in-out;
     }
@@ -33,15 +50,15 @@ author_profile: true
       100% { opacity: 1; }
     }
 
-    /* 容器样式，用于排列成大爱心 */
+    /* 容器样式，用于排列成心形 */
     .heart-container {
       position: relative;
-      width: 1350px;  /* 扩大容器的宽度 */
-      height: 1350px; /* 扩大容器的高度 */
+      width: 1350px;
+      height: 1350px;
       margin: 50px auto;
     }
 
-    /* 每个图片和文字的样式 */
+    /* 每个图片和文字项 */
     .heart-item {
       position: absolute;
       text-align: center;
@@ -49,16 +66,16 @@ author_profile: true
       height: 100px;
       opacity: 0;
       transform: scale(0);
-      animation: showItem 1s ease-out forwards;
+      animation: fadeInScale 1s ease-out forwards;
     }
 
-    @keyframes showItem {
+    @keyframes fadeInScale {
       0% {
         opacity: 0;
-        transform: scale(0);
+        transform: scale(0.8);
       }
       50% {
-        opacity: 0.5;
+        opacity: 0.7;
         transform: scale(1.1);
       }
       100% {
@@ -66,7 +83,8 @@ author_profile: true
         transform: scale(1);
       }
     }
-  
+
+
     /* 每个图片和文字的位置，根据心形路径调整 */
     .heart-item-30 { top: 80%; left: 50%; transform: translateX(-50%); animation-delay: 0.6s; }
     .heart-item-29 { top: 75%; left: 60%; transform: translateX(-50%); animation-delay: 0.55s; }
@@ -99,36 +117,62 @@ author_profile: true
     .heart-item-2 { top: 0%; left: 60%; transform: translateX(-50%); animation-delay: 0.85s; }
     .heart-item-1 { top: 0%; left: 40%; transform: translateX(-50%); animation-delay: 0.9s; }
 
+    /* 图片样式 */
     .heart-item img {
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-      transition: transform 0.3s ease;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      filter: brightness(1.1) contrast(1.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .heart-item img:hover {
       transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
     }
 
-    /* 放大图片弹出层 */
+    /* 图片和文字的过渡效果 */
+    .heart-text {
+      font-size: 14px;
+      color: #555;
+      padding-top: 10px;
+      font-style: italic;
+      transition: transform 0.3s ease;
+    }
+
+    .heart-item:hover .heart-text {
+      transform: translateY(-10px);
+      color: #d25a9d;
+    }
+
+    /* 弹出层样式 */
     .modal {
-      display: none; /* 默认隐藏 */
+      display: none;
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.8); /* 半透明黑色背景 */
-      z-index: 1000; /* 确保在最前面 */
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 1000;
       justify-content: center;
       align-items: center;
+      opacity: 0;
+      animation: fadeInModal 0.5s forwards;
+    }
+
+    @keyframes fadeInModal {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
     }
 
     .modal img {
       max-width: 90%;
       max-height: 80%;
       margin: auto;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     }
 
     /* 关闭按钮样式 */
@@ -141,17 +185,18 @@ author_profile: true
       cursor: pointer;
     }
 
-
-    /* 自定义字体样式 */
-    .heart-text {
-      font-size: 14px;
-      color: #555;
-      padding-top: 10px;
-      font-style: italic;
+    /* 音乐背景 */
+    audio {
+      display: none;
     }
   </style>
 </head>
 <body>
+
+  <!-- 粒子背景 -->
+  <div id="particles-js"></div>
+  
+  <!-- 页面音乐 -->
   <audio autoplay loop>
     <source src="../files/Taylor Swift - Delicate.mp3" type="audio/mp3">
   </audio>
@@ -288,6 +333,19 @@ author_profile: true
   </div>
 
   <script>
+    // 初始化粒子效果
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 50, density: { enable: true, value_area: 800 } },
+        shape: { type: 'circle' },
+        opacity: { value: 0.5, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1 } },
+        size: { value: 3, random: true }
+      },
+      interactivity: {
+        events: { onhover: { enable: true, mode: 'repulse' } }
+      }
+    });
+
     // 获取弹出层和关闭按钮
     const modal = document.getElementById("modal");
     const modalImg = document.getElementById("modalImg");
@@ -299,7 +357,6 @@ author_profile: true
     // 遍历所有图片，添加点击事件
     images.forEach(img => {
       img.addEventListener("click", function() {
-        // 获取点击的图片源路径并设置为弹出层中的图片
         modal.style.display = "flex"; // 显示弹出层
         modalImg.src = this.src; // 设置放大图的路径
       });
