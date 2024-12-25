@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>动态心形排列的图片和文字</title>
+  <style>
+    /* 页面基本样式 */
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+    }
+
+    h1 {
+      margin-top: 20px;
+    }
+
+    /* 容器样式，用于排列成大爱心 */
+    .heart-container {
+      position: relative;
+      width: 1500px;  /* 扩大容器的宽度 */
+      height: 1500px; /* 扩大容器的高度 */
+      margin: 50px auto;
+    }
+
+    /* 每个图片和文字的样式 */
+    .heart-item {
+      position: absolute;
+      text-align: center;
+      width: 100px;   /* 设置图片宽度为100px */
+      height: 100px;  /* 设置图片高度为100px */
+      opacity: 0;     /* 初始时图片透明度为0，隐藏 */
+      transform: scale(0);  /* 初始时缩放为0，即图片不可见 */
+      animation: showItem 1s forwards; /* 动画效果 */
+    }
+
+    /* 图片和文字的显示动画 */
+    @keyframes showItem {
+      0% {
+        opacity: 0;
+        transform: scale(0);
+      }
+      50% {
+        opacity: 0.5;
+        transform: scale(1.1); /* 图片略微放大 */
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);   /* 图片恢复到原始大小 */
+      }
+    }
+
+    /* 每个图片和文字的位置，根据心形路径调整 */
+    .heart-item-30 { top: 90%; left: 50%; transform: translateX(-50%); animation-delay: 0.6s; }
+    .heart-item-29 { top: 85%; left: 60%; transform: translateX(-50%); animation-delay: 0.55s; }
+    .heart-item-28 { top: 85%; left: 40%; transform: translateX(-50%); animation-delay: 0.5s; }
+    .heart-item-27 { top: 77%; left: 70%; transform: translateX(-50%); animation-delay: 0.45s; }
+    .heart-item-26 { top: 77%; left: 30%; transform: translateX(-50%); animation-delay: 0.4s; }
+    .heart-item-25 { top: 73%; left: 55%; transform: translateX(-50%); animation-delay: 0.35s; }
+    .heart-item-24 { top: 73%; left: 45%; transform: translateX(-50%); animation-delay: 0.3s; }
+    .heart-item-23 { top: 66%; left: 75%; transform: translateX(-50%); animation-delay: 0.25s; }
+    .heart-item-22 { top: 66%; left: 25%; transform: translateX(-50%); animation-delay: 0.2s; }
+    .heart-item-21 { top: 60%; left: 50%; transform: translateX(-50%); animation-delay: 0.15s; }
+    .heart-item-20 { top: 55%; left: 80%; transform: translateX(-50%); animation-delay: 0.1s; }
+    .heart-item-19 { top: 55%; left: 63%; transform: translateX(-50%); animation-delay: 0.05s; }
+    .heart-item-18 { top: 55%; left: 37%; transform: translateX(-50%); animation-delay: 0.0s; }
+    .heart-item-17 { top: 55%; left: 20%; transform: translateX(-50%); animation-delay: 0.1s; }
+    .heart-item-16 { top: 45%; left: 85%; transform: translateX(-50%); animation-delay: 0.15s; }
+    .heart-item-15 { top: 45%; left: 50%; transform: translateX(-50%); animation-delay: 0.2s; }
+    .heart-item-14 { top: 45%; left: 15%; transform: translateX(-50%); animation-delay: 0.25s; }
+    .heart-item-13 { top: 40%; left: 70%; transform: translateX(-50%); animation-delay: 0.3s; }
+    .heart-item-12 { top: 40%; left: 30%; transform: translateX(-50%); animation-delay: 0.35s; }
+    .heart-item-11 { top: 33%; left: 90%; transform: translateX(-50%); animation-delay: 0.4s; }
+    .heart-item-10 { top: 33%; left: 10%; transform: translateX(-50%); animation-delay: 0.45s; }
+    .heart-item-9 { top: 30%; left: 50%; transform: translateX(-50%); animation-delay: 0.5s; }
+    .heart-item-8 { top: 25%; left: 65%; transform: translateX(-50%); animation-delay: 0.55s; }
+    .heart-item-7 { top: 25%; left: 35%; transform: translateX(-50%); animation-delay: 0.6s; }
+    .heart-item-6 { top: 20%; left: 85%; transform: translateX(-50%); animation-delay: 0.65s; }
+    .heart-item-5 { top: 20%; left: 15%; transform: translateX(-50%); animation-delay: 0.7s; }
+    .heart-item-4 { top: 15%; left: 75%; transform: translateX(-50%); animation-delay: 0.75s; }
+    .heart-item-3 { top: 15%; left: 25%; transform: translateX(-50%); animation-delay: 0.8s; }
+    .heart-item-2 { top: 10%; left: 60%; transform: translateX(-50%); animation-delay: 0.85s; }
+    .heart-item-1 { top: 10%; left: 40%; transform: translateX(-50%); animation-delay: 0.9s; }
+
+    /* 自定义字体样式 */
+    .heart-text {
+      font-size: 14px;
+      color: #333;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>我们一起度过的特别时刻 💖</h1>
+  <div class="heart-container">
+    <!-- 每个图片和文字项 -->
+    <div class="heart-item heart-item-1">
+      <img src="../images/20240427.jpg" width="100" height="100">
+      <div class="heart-text">2024年4月27日第一次一起过生日</div>
+    </div>
+    <div class="heart-item heart-item-2">
+      <img src="../images/20240427-1.jpg" width="100" height="100">
+      <div class="heart-text">2024年4月27日第一次一起过生日</div>
+    </div>
+    <div class="heart-item heart-item-3">
+      <img src="../images/20240515.jpg" width="100" height="100">
+      <div class="heart-text">2024年5月15日接🥣宝宝回来</div>
+    </div>
+    <div class="heart-item heart-item-4">
+      <img src="../images/20240515-1.jpg" width="100" height="100">
+      <div class="heart-text">2024年5月15日给🥣宝宝买花🌹</div>
+    </div>
+    <div class="heart-item heart-item-5">
+      <img src="../images/20240516.jpg" width="100" height="100">
+      <div class="heart-text">2024年5月16日吃完饭后第一次亲亲😙</div>
+    </div>
+    <div class="heart-item heart-item-6">
+      <img src="../images/20240519.jpg" width="100" height="100">
+      <div class="heart-text">2024年5月19日两人在湖边约定“结婚日子”</div>
+    </div>
+    <div class="heart-item heart-item-7">
+      <img src="../images/20240524.jpg" width="100" height="100">
+      <div class="heart-text">2024年5月24日两人第一次💤</div>
+    </div>
+    <div class="heart-item heart-item-8">
+      <img src="../images/20240526-3.jpg" width="100" height="100">
+      <div class="heart-text">2024年5月26日在咖啡馆学习</div>
+    </div>
+    <div class="heart-item heart-item-9">
+      <img src="../images/20240526-4.jpg" width="100" height="100">
+      <div class="heart-text">2024年5月26日在咖啡馆学习</div>
+    </div>
+    <div class="heart-item heart-item-10">
+      <img src="../images/20240613.jpg" width="100" height="100">
+      <div class="heart-text">2024年6月13日两个人戴上💍</div>
+    </div>
+    <div class="heart-item heart-item-11">
+      <img src="../images/20240613-1.jpg" width="100" height="100">
+      <div class="heart-text">2024年6月13日两个人戴上💍</div>
+    </div>
+    <div class="heart-item heart-item-12">
+      <img src="../images/20240616.jpg" width="100" height="100">
+      <div class="heart-text">2024年6月16日第一张自拍合照</div>
+    </div>
+    <div class="heart-item heart-item-13">
+      <img src="../images/20240616-1.jpg" width="100" height="100">
+      <div class="heart-text">2024年6月16日第一张自拍合照</div>
+    </div>
+    <div class="heart-item heart-item-14">
+      <img src="../images/20240620.jpg" width="100" height="100">
+      <div class="heart-text">2024年6月20日给🥣宝宝做毕业帽</div>
+    </div>
+    <div class="heart-item heart-item-15">
+      <img src="../images/20240621.jpg" width="100" height="100">
+      <div class="heart-text">2024年6月21日给🥣宝宝毕业花束</div>
+    </div>
+    <div class="heart-item heart-item-16">
+      <img src="../images/20240621-1.jpg" width="100" height="100">
+      <div class="heart-text">2024年6月21日🥣宝宝毕业合照</div>
+    </div>
+    <div class="heart-item heart-item-17">
+      <img src="../images/20240622-2.jpg" width="100" height="100">
+      <div class="heart-text">2024年6月22日海马体拍写真</div>
+    </div>
+    <div class="heart-item heart-item-18">
+      <img src="../images/20240704.jpg" width="100" height="100">
+      <div class="heart-text">2024年7月4日第一次见🥣爸爸妈妈</div>
+    </div>
+    <div class="heart-item heart-item-19">
+      <img src="../images/20240705-1.jpg" width="100" height="100">
+      <div class="heart-text">2024年7月5日第一次和🥣爸爸妈妈合照</div>
+    </div>
+    <div class="heart-item heart-item-20">
+      <img src="../images/20240705-2.jpg" width="100" height="100">
+      <div class="heart-text">2024年7月5日🥣宝宝毕业合照</div>
+    </div>
+    <div class="heart-item heart-item-21">
+      <img src="../images/20240711-1.jpg" width="100" height="100">
+      <div class="heart-text">2024年7月11日收到🥣宝宝写的信</div>
+    </div>
+    <div class="heart-item heart-item-22">
+      <img src="../images/20240711-2.jpg" width="100" height="100">
+      <div class="heart-text">2024年7月11日收到🥣宝宝写的信</div>
+    </div>
+    <div class="heart-item heart-item-23">
+      <img src="../images/20240714.jpg" width="100" height="100">
+      <div class="heart-text">2024年7月14日第一次和🥣爸爸妈妈一起出游</div>
+    </div>
+    <div class="heart-item heart-item-24">
+      <img src="../images/20240726.jpg" width="100" height="100">
+      <div class="heart-text">2024年7月26日第一次出游</div>
+    </div>
+    <div class="heart-item heart-item-25">
+      <img src="../images/20240803.jpg" width="100" height="100">
+      <div class="heart-text">2024年8月03日第一次回🍬家的路上</div>
+    </div>
+    <div class="heart-item heart-item-26">
+      <img src="../images/20240810.jpg" width="100" height="100">
+      <div class="heart-text">2024年8月10日第一次和🍬爸爸妈妈合照</div>
+    </div>
+    <div class="heart-item heart-item-27">
+      <img src="../images/20240811.jpg" width="100" height="100">
+      <div class="heart-text">2024年8月11日第一次回🥣家</div>
+    </div>
+    <div class="heart-item heart-item-28">
+      <img src="../images/20240812.jpg" width="100" height="100">
+      <div class="heart-text">2024年8月12日第一次见🥣的亲戚</div>
+    </div>
+    <div class="heart-item heart-item-29">
+      <img src="../images/20240917.jpg" width="100" height="100">
+      <div class="heart-text">2024年9月17日异国的开始</div>
+    </div>
+    <div class="heart-item heart-item-30">
+      <img src="../images/20240917-1.jpg" width="100" height="100">
+      <div class="heart-text">2024年9月17日异国的开始</div>
+    </div>
+  </div>
+</body>
+</html>
