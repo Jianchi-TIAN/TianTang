@@ -63,71 +63,26 @@ author_profile: true
       background: #fff;
     }
 
-    /* 容器内的图片循环播放 */
+    /* 容器内图片样式 */
     .image-slider-container {
       position: relative;
+      width: 100%;
       height: 100%;
-      animation: slideImages 90s infinite linear; /* 设置动画周期90秒循环播放30张图片 */
     }
 
     .image-slider-item {
+      position: absolute;
       width: 100%;
       height: 100%;
-      display: inline-block;
       opacity: 0;
-      animation: fadeInOut 30s infinite;
+      transition: opacity 1s ease-in-out;
     }
 
     .image-slider-item img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: opacity 1s ease-in-out;
     }
-
-    /* 图片淡入淡出效果 */
-    @keyframes fadeInOut {
-      0%, 10% { opacity: 1; }
-      15%, 25% { opacity: 0; }
-      30%, 40% { opacity: 1; }
-      45%, 55% { opacity: 0; }
-      60%, 70% { opacity: 1; }
-      75%, 85% { opacity: 0; }
-      90%, 100% { opacity: 1; }
-    }
-
-    /* 设置每张图片循环播放的具体顺序 */
-    .image-slider-item:nth-child(1) { animation-delay: 0s; }
-    .image-slider-item:nth-child(2) { animation-delay: 3s; }
-    .image-slider-item:nth-child(3) { animation-delay: 6s; }
-    .image-slider-item:nth-child(4) { animation-delay: 9s; }
-    .image-slider-item:nth-child(5) { animation-delay: 12s; }
-    .image-slider-item:nth-child(6) { animation-delay: 15s; }
-    .image-slider-item:nth-child(7) { animation-delay: 18s; }
-    .image-slider-item:nth-child(8) { animation-delay: 21s; }
-    .image-slider-item:nth-child(9) { animation-delay: 24s; }
-    .image-slider-item:nth-child(10) { animation-delay: 27s; }
-    .image-slider-item:nth-child(11) { animation-delay: 30s; }
-    .image-slider-item:nth-child(12) { animation-delay: 33s; }
-    .image-slider-item:nth-child(13) { animation-delay: 36s; }
-    .image-slider-item:nth-child(14) { animation-delay: 39s; }
-    .image-slider-item:nth-child(15) { animation-delay: 42s; }
-    .image-slider-item:nth-child(16) { animation-delay: 45s; }
-    .image-slider-item:nth-child(17) { animation-delay: 48s; }
-    .image-slider-item:nth-child(18) { animation-delay: 51s; }
-    .image-slider-item:nth-child(19) { animation-delay: 54s; }
-    .image-slider-item:nth-child(20) { animation-delay: 57s; }
-    .image-slider-item:nth-child(21) { animation-delay: 60s; }
-    .image-slider-item:nth-child(22) { animation-delay: 63s; }
-    .image-slider-item:nth-child(23) { animation-delay: 66s; }
-    .image-slider-item:nth-child(24) { animation-delay: 69s; }
-    .image-slider-item:nth-child(25) { animation-delay: 72s; }
-    .image-slider-item:nth-child(26) { animation-delay: 75s; }
-    .image-slider-item:nth-child(27) { animation-delay: 78s; }
-    .image-slider-item:nth-child(28) { animation-delay: 81s; }
-    .image-slider-item:nth-child(29) { animation-delay: 84s; }
-    .image-slider-item:nth-child(30) { animation-delay: 87s; }
-
 
 
     /* 右侧大屏容器样式，用于排列成心形 */
@@ -379,6 +334,30 @@ author_profile: true
       </div>
     </div>
   </div>
+  
+  <script>
+    // JavaScript部分：实现图片的自动切换
+    const images = document.querySelectorAll('.image-slider-item');
+    let currentIndex = 0;
+    const totalImages = images.length;
+
+    // 初始化显示第一张图片
+    images[currentIndex].style.opacity = 1;
+
+    function changeImage() {
+      // 当前图片淡出
+      images[currentIndex].style.opacity = 0;
+
+      // 更新索引，循环回到第一张
+      currentIndex = (currentIndex + 1) % totalImages;
+
+      // 下一张图片淡入
+      images[currentIndex].style.opacity = 1;
+    }
+
+    // 每3秒切换一张图片
+    setInterval(changeImage, 3000); // 每3秒切换一次图片
+  </script>
   
   <div class="heart-container">
     <!-- 每个图片和文字项 -->
