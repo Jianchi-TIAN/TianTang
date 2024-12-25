@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我们一起度过的特别时刻 💖</title>
+  <style>
+    /* 页面基本样式 */
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+    }
+
+    h1 {
+      margin-top: 20px;
+    }
+
+    /* 容器样式，用于排列成大爱心 */
+    .heart-container {
+      position: relative;
+      width: 1500px;  /* 扩大容器的宽度 */
+      height: 1500px; /* 扩大容器的高度 */
+      margin: 50px auto;
+    }
+
+    /* 每个图片和文字的样式 */
+    .heart-item {
+      position: absolute;
+      text-align: center;
+      width: 100px;   /* 设置图片宽度为100px */
+      height: 100px;  /* 设置图片高度为100px */
+      cursor: pointer;
+    }
+
+    .heart-item img {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+    }
+
+    /* 放大图片弹出层 */
+    .modal {
+      display: none; /* 默认隐藏 */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8); /* 半透明黑色背景 */
+      z-index: 1000; /* 确保在最前面 */
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 80%;
+      margin: auto;
+    }
+
+    /* 关闭按钮样式 */
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 30px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* 自定义字体样式 */
+    .heart-text {
+      font-size: 14px;
+      color: #333;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 内置背景音乐，用户无法控制 -->
+  <audio autoplay loop muted>
+    <source src="music/love_song.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <h1>我们一起度过的特别时刻 💖</h1>
+  <div class="heart-container">
+    <!-- 每个图片和文字项 -->
+    <div class="heart-item heart-item-1">
+      <img src="../images/20240427.jpg" width="100" height="100" alt="2024年4月27日第一次一起过生日">
+      <div class="heart-text">2024年4月27日第一次一起过生日</div>
+    </div>
+    <div class="heart-item heart-item-2">
+      <img src="../images/20240427-1.jpg" width="100" height="100" alt="2024年4月27日第一次一起过生日">
+      <div class="heart-text">2024年4月27日第一次一起过生日</div>
+    </div>
+    <!-- 其他图片项依次排列... -->
+  </div>
+
+  <!-- 放大查看图片的弹出层 -->
+  <div class="modal" id="modal">
+    <span class="close-btn" id="closeBtn">&times;</span>
+    <img id="modalImg" src="" alt="放大图片" />
+  </div>
+
+  <script>
+    // 获取弹出层和关闭按钮
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modalImg");
+    const closeBtn = document.getElementById("closeBtn");
+
+    // 获取所有图片元素
+    const images = document.querySelectorAll(".heart-item img");
+
+    // 遍历所有图片，添加点击事件
+    images.forEach(img => {
+      img.addEventListener("click", function() {
+        // 获取点击的图片源路径并设置为弹出层中的图片
+        modal.style.display = "flex"; // 显示弹出层
+        modalImg.src = this.src; // 设置放大图的路径
+      });
+    });
+
+    // 关闭弹出层
+    closeBtn.addEventListener("click", function() {
+      modal.style.display = "none"; // 隐藏弹出层
+    });
+
+    // 点击弹出层外的区域也可以关闭弹出层
+    window.addEventListener("click", function(event) {
+      if (event.target === modal) {
+        modal.style.display = "none"; // 隐藏弹出层
+      }
+    });
+  </script>
+</body>
+</html>
