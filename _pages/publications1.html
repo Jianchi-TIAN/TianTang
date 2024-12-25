@@ -37,18 +37,17 @@ author_profile: true
     /* 容器样式，用于排列成大爱心 */
     .heart-container {
       position: relative;
+      width: 1500px;  /* 扩大容器的宽度 */
+      height: 1500px; /* 扩大容器的高度 */
       margin: 50px auto;
-      width: 90%;
-      height: auto;
-      max-width: 1200px;
     }
 
     /* 每个图片和文字的样式 */
     .heart-item {
       position: absolute;
       text-align: center;
-      width: 120px;
-      height: 120px;
+      width: 100px;
+      height: 100px;
       opacity: 0;
       transform: scale(0);
       animation: showItem 1s ease-out forwards;
